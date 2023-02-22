@@ -15,7 +15,7 @@ module.exports = {
   parserOptions: {
     project: "./tsconfig.json",
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ["@typescript-eslint", "simple-import-sort"],
   extends: ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
   rules: {
     "@typescript-eslint/consistent-type-imports": [
@@ -25,5 +25,7 @@ module.exports = {
         fixStyle: "inline-type-imports",
       },
     ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
   },
 };
