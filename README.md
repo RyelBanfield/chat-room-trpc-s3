@@ -10,3 +10,6 @@
 - [tRPC](https://trpc.io)
 - [MongoDB](https://www.mongodb.com)
 - [AWS S3](https://aws.amazon.com/s3/)
+
+### TODO
+- Fix issue where upon sending a photo, the image in the chat is broken as it was not yet uploaded to the S3 bucket
