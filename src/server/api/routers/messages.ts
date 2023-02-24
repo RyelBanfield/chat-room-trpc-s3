@@ -14,23 +14,20 @@ export const messagesRouter = createTRPCRouter({
       });
     }),
 
-  getMessages: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.message
-      .findMany({
-        orderBy: {
-          createdAt: "asc",
-        },
-      })
-      .then((messages) => {
-        return messages.map((message) => {
-          return {
-            ...message,
-            image: message.image
-              ? `https://chat-room-trcp-s3-images.s3.us-east-2.amazonaws.com/${message.image}`
-              : null,
-          };
-        });
-      });
+  getMessages: publicProcedure.query(async ({ ctx }) => {
+    const messages = await ctx.prisma.message.findMany({
+      orderBy: {
+        createdAt: "asc",
+      },
+    });
+    return messages.map((message) => {
+      return {
+        ...message,
+        image: message.image
+          ? `https://chat-room-trcp-s3-images.s3.us-east-2.amazonaws.com/${message.image}`
+          : null,
+      };
+    });
   }),
 
   deleteMessage: publicProcedure
