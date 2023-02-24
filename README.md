@@ -13,3 +13,4 @@
 
 ### TODO
 - Fix issue where upon sending a photo, the image in the chat is broken as it was not yet uploaded to the S3 bucket
+- Introduce pagination so only most recent messages are loaded and upon scrolling up, more messages are loaded.
